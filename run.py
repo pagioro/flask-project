@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, render_template 
+from flask import Flask, render_template, request, flash
 
 
 app = Flask(__name__)
@@ -18,10 +18,22 @@ def about():
         data = json.load(json_data) # Variável data recebe json_data acima e será carregada na array data = []
     return render_template("about.html", page_title="About", company=data) # Os dados acima são retornados na variável company
     
-    
 
-@app.route("/contact")
+@app.route("/about/<member_name>")
+def about_member(member_name):
+    member = {}
+    with open("data/company.json", "r") as json_data:
+        data = json.load(json_data)
+        for obj in data:
+            if obj ["url"] == member_name:
+                member = obj
+    return render_template("member.html", member=member) # O primeiro member é a variável passando através do arquivo html e o segundo member é o objeto criado na linha 24
+
+
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
+    if request.method == "POST":
+        print()
     return render_template("contact.html", page_title="Contact")
 
 

@@ -23,7 +23,7 @@
             <!-- Este if só mostrará os números impares na página -->
 
                 <div class="col-md-7">
-                    <h3>{{ loop.index }}.{{ member.name }}</h3> <!-- member faz a referência do for acima e pega o conteúdo name do arquivo .json, loop.index interage através do for e coloca os números-->
+                    <h3><a href="/about/{{ member.url }}">{{ loop.index }}.{{ member.name }}</a></h3> <!-- member faz a referência do for acima e pega o conteúdo name do arquivo .json, loop.index interage através do for e coloca os números-->
                     <p>{{ member.description }}</p>
                 </div>
                 <div class="col-md-5">
@@ -38,7 +38,7 @@
                     <img src={{ member.image_source }} alt="" class="featuarette-image image-responsive" >
                 </div>
                 <div class="col-md-7">
-                    <h3>{{ loop.index }}.{{ member.name }}</h3> <!-- member faz a referência do for acima e pega o conteúdo name do arquivo .json, loop.index interage através do for e coloca os números-->
+                    <h3><a href="/about/{{ member.url }}">{{ loop.index }}.{{ member.name }}</a></h3>  <!-- member faz a referência do for acima e pega o conteúdo name do arquivo .json, loop.index interage através do for e coloca os números-->                    
                     <p>{{ member.description }}</p>
                 </div>
 
